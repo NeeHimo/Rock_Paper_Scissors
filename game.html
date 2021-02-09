@@ -10,8 +10,7 @@
     <script>
       function computerPlay() {
         const a = ['rock', 'paper', 'scissor'];
-        let random = a[Math.floor(Math.random() * a.length)];
-        return random;
+        return a[Math.floor(Math.random() * a.length)];
       }
       // function playerPlay{
       //   const a = ['rock', 'paper', 'scissor'];
@@ -19,14 +18,16 @@
       //   return random;
       // }
       function playRound(playerSelection, computerSelection) {
-        if (playerSelection == 'rock' && computerSelection == 'rock') {
-          return 'its a tie';
-        }
-        if (playerSelection == 'rock' && computerSelection == 'paper') {
-          return 'its a loss';
-        }
-        if (playerSelection == 'rock' && computerSelection == 'scissor') {
-          return 'its a win!!';
+        if (
+          (playerSelection == 'rock' && computerSelection == 'paper') ||
+          (playerSelection == 'paper' && computerSelection == 'scissor') ||
+          (playerSelection == 'scissor' && computerSelection == 'rock')
+        ) {
+          return 'You lose! Computer WINS!!';
+        } else if (playerSelection == computerSelection) {
+          return 'its a TIE!!!';
+        } else {
+          return 'WON!!';
         }
       }
       const playerSelection = 'rock';
